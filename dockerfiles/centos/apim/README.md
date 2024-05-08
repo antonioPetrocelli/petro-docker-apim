@@ -16,7 +16,7 @@ This section defines the step-by-step instructions to build an [CentOS](https://
 #### 1. Checkout this repository into your local machine using the following Git client command.
 
 ```
-git clone https://github.com/wso2/docker-apim.git
+git clone https://github.com/antonioPetrocelli/petro-docker-apim.git
 ```
 
 > The local copy of the `dockerfiles/centos/apim` directory will be referred to as `AM_DOCKERFILE_HOME` from this point onwards.
