@@ -22,7 +22,7 @@ FROM centos:7
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 # install dependencies
-RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar nc netstat unzip wget \
+RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar nc netcat unzip wget \
     && yum clean all
 
 ENV JAVA_VERSION jdk-17.0.6+10
