@@ -1,7 +1,7 @@
 # Dockerfile for WSO2 API Manager #
 [Source of this doc](https://github.com/wso2/docker-apim/blob/4.2.x/dockerfiles/centos/apim/README.md)
 
-[GitHub Source files](https://codeload.github.com/wso2/docker-apim/zip/refs/tags/v4.2.0.1)
+[GitHub Source files](https://codeload.github.com/wso2/docker-apim/zip/refs/tags/v4.3.0.1)
 
 This section defines the step-by-step instructions to build an [CentOS](https://hub.docker.com/_/centos/) Linux based Docker image for WSO2 API Manager 4.3.0.
 
@@ -42,7 +42,7 @@ docker image ls
 
 |REPOSITORY                    |TAG            |IMAGE ID       |CREATED         |SIZE   |
 |------------------------------|---------------|---------------|----------------|-------|
-|wso2am                        |4.2.0-centos   |ab3ee76c2379   |9 minutes ago   |1.28GB |
+|wso2am                        |4.3.0-centos   |ab3ee76c2379   |9 minutes ago   |1.28GB |
 |gcr.io/k8s-minikube/kicbase   |v0.0.43        |619d67e74933   |2 weeks ago     |1.26GB |
 
 * Push command sample
@@ -70,7 +70,7 @@ You may map other container service ports, which have been exposed to Docker hos
 If you want run the docker image with all ports enabled, run this command
 
 ```
-docker run -it -p 9443:9443 -p 8243:8243 -p 9763:9763 -p 9999:9999 -p 11111:11111 -p 8280:8280 -p 5672:5672 -p 9711:9711 -p 9611:9611 -p 9099:9099 wso2am:4.2.0-centos
+docker run -it -p 9443:9443 -p 8243:8243 -p 9763:9763 -p 9999:9999 -p 11111:11111 -p 8280:8280 -p 5672:5672 -p 9711:9711 -p 9611:9611 -p 9099:9099 wso2am:4.3.0-centos
 ```
 
 #### 5. Accessing management console.
@@ -131,13 +131,13 @@ It is possible to use official wso2am images without building them from the scra
 
 - To run on amd64 or Apple Silicon (arm64)
 ```
-docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.2.0-centos
+docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.3.0-centos
 ```
 > This official image is built for amd64 thus it will not run on Apple silicon natively. But it will run on emulated docker on Rosetta.
 
 ## How to build a Docker image with multi architecture support
 
-The above wso2am:4.2.0 image will only be supported for the CPU architecture of your current machine. Docker buildx plugin can be used to build wso2am:4.2.0 image to support any CPU architecture.
+The above wso2am:4.3.0 image will only be supported for the CPU architecture of your current machine. Docker buildx plugin can be used to build wso2am:4.3.0 image to support any CPU architecture.
 
 #### 1. Install [Docker Buildx](https://docs.docker.com/buildx/working-with-buildx/)
 
@@ -159,7 +159,7 @@ docker buildx inspect --bootstrap
 #### 4. Build and push 
 
 ```
-docker buildx build --platform linux/amd64,linux/arm64 -t <DOCKER_USERNAME>/wso2am:4.2.0-centos-multiarch --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t <DOCKER_USERNAME>/wso2am:4.3.0-centos-multiarch --push .
 ```
 
 > - Here <DOCKER_USERNAME> is a valid Docker or Dockerhub username.
@@ -170,7 +170,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t <DOCKER_USERNAME>/wso2
 
 #### 5. Run
 ```
-docker run -it -p 9443:9443 -p 8243:8243 <DOCKER_USERNAME>/wso2am:4.2.0-centos-multiarch
+docker run -it -p 9443:9443 -p 8243:8243 <DOCKER_USERNAME>/wso2am:4.3.0-centos-multiarch
 ```
 > Docker will pull the suitable image for the architecture and run
 
