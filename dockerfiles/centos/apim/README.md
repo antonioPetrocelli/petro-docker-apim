@@ -31,6 +31,15 @@ git clone https://github.com/antonioPetrocelli/petro-docker-apim.git
 docker build -t wso2am:4.3.0-centos .
 ```
 
+> To ensure that your build is completely rebuild, including checking the base image for updates, use the following options when building:
+- --no-cache - This will force rebuilding of layers already available
+- --pull - This will trigger a pull of the base image referenced using FROM ensuring you got the latest version.
+
+The full command will therefore look like this:
+```
+docker build --pull --no-cache -t wso2am:4.3.0-centos .
+```
+
 > By default, the Docker image will prepackage the General Availability (GA) release version of the relevant WSO2 product.
 
 #### 3. Push the Docker image to your DockerHub Repository.
