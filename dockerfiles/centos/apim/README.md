@@ -31,7 +31,7 @@ git clone https://github.com/antonioPetrocelli/petro-docker-apim.git
 docker build -t wso2am:4.3.0-centos .
 ```
 
-> To ensure that your build is completely rebuild, including checking the base image for updates, use the following options when building:
+To ensure that your build is completely rebuild, including checking the base image for updates, use the following options when building:
 - --no-cache - This will force rebuilding of layers already available
 - --pull - This will trigger a pull of the base image referenced using FROM ensuring you got the latest version.
 
@@ -49,10 +49,12 @@ docker build --pull --no-cache -t wso2am:4.3.0-centos .
 docker image ls
 ```
 
+|------------------------------|---------------|---------------|----------------|-------|
 |REPOSITORY                    |TAG            |IMAGE ID       |CREATED         |SIZE   |
 |------------------------------|---------------|---------------|----------------|-------|
 |wso2am                        |4.3.0-centos   |ab3ee76c2379   |9 minutes ago   |1.28GB |
 |gcr.io/k8s-minikube/kicbase   |v0.0.43        |619d67e74933   |2 weeks ago     |1.26GB |
+|------------------------------|---------------|---------------|----------------|-------|
 
 * Push command sample
 ```
@@ -89,6 +91,7 @@ docker run -it -p 9443:9443 -p 8243:8243 -p 9763:9763 -p 9999:9999 -p 11111:1111
     
 > In here, <DOCKER_HOST> refers to hostname or IP of the host machine on top of which containers are spawned.
 
+|--------------------------------------|----------------------------------------|
 | HTTP                                 | URL                                    |
 |--------------------------------------|----------------------------------------|
 |Mgt Console URL:                      |http://localhost:9763/carbon/           |
@@ -96,7 +99,7 @@ docker run -it -p 9443:9443 -p 8243:8243 -p 9763:9763 -p 9999:9999 -p 11111:1111
 |API Developer Portal Default Context: |http://localhost:9763/devportal         |
 |API Publisher Default Context:        |http://localhost:9763/publisher         |
 |API Manager Gateway:                  |http://localhost:8280/services/Version  |
-
+|--------------------------------------|----------------------------------------|
 | HTTPS                                | URL                                    |
 |--------------------------------------|----------------------------------------|
 |Mgt Console URL:                      |https://localhost:9443/carbon/          |
@@ -104,7 +107,7 @@ docker run -it -p 9443:9443 -p 8243:8243 -p 9763:9763 -p 9999:9999 -p 11111:1111
 |API Developer Portal Default Context: |https://localhost:9443/devportal        |
 |API Publisher Default Context:        |https://localhost:9443/publisher        |
 |API Manager Gateway:                  |https://localhost:8243/services/Version |
-
+|--------------------------------------|----------------------------------------|
 
 ## How to update configurations
 
